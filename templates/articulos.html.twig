@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+{% if articulos %}
+    <h1>Listado de Articulos</h1>
+    <table border=”1”>
+        <tr>
+            <th>ID</th>
+            <th>Titulo</th>
+            <th>Fecha de Creacion</th>
+        </tr>
+        {% for articulo in articulos %}
+        <tr>
+            <td>{{articulo.id}}</td>
+            <td><a href="{{ path('app_main_id', {'id': articulo.id}) }}">{{ articulo.title }}</a></td>
+            <td>{{articulo.created}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+{% else %}
+    <p> No se encontraron articulos </p>
+{% endif %}
+</body>
+</html>
+
+
